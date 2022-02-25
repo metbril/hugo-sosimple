@@ -1,0 +1,9 @@
+<header>
+    <h1>{{ .Site.Title | default "So Simple" }}</h1>
+    {{ with .Site.Params.Description }}<p>{{ . }}</p>{{ end }}
+    <nav>
+        {{ range .Site.Menus.main }}
+        <a href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a>
+        {{ end }}   
+    </nav>
+</header>

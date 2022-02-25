@@ -1,0 +1,13 @@
+<article class="post h-entry"  id="post-{{ .Permalink | md5 }}">
+    <header>
+        <h3 class="p-name"><a href="{{ .Permalink | absURL }}">{{ .Title }}</a></h3>
+        <p><small>
+            {{ i18n "postedon" }} <a href="{{ .Permalink | absURL }}">{{ .Date.Format (.Site.Params.DateFormat | default "2 January 2006") }}</a>
+            {{ i18n "postedby"}} {{ .Params.Author | default (.Site.Author.name) }}
+        </small></p>
+    </header>
+    <section class="p-summary">
+        {{ .Summary }}
+        {{ if .Truncated }}<p><a href="{{ .RelPermalink }}">{{ i18n "readmore" | safeHTML }}</a></p>{{ end }}
+    </section>
+</article>
