@@ -9,8 +9,26 @@
             {{ i18n "postedby"}} {{ .Params.Author | default (.Site.Author.name) }}
         </small></p>
         <section class="p-content">
-            {{ .Content }}
+            {{ .Content | safeHTML }}
         </section>
+        <footer>
+            {{ if .Params.categories }}
+            <div><small>
+                Categories:
+                {{ range .Params.categories | sort }}
+                <a class="p-category" href="{{ "/categories/" | relLangURL }}{{ . | urlize }}" >{{- . -}}</a>
+                {{ end }}
+            </small></div>
+            {{ end }}
+            {{ if .Params.tags }}
+            <div><small>
+                Tags:
+                {{ range .Params.tags | sort }}
+                <a class="p-category" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" >{{- . -}}</a>
+                {{ end }}
+            </small></div>
+            {{ end }}
+        </footer>
     </article>
 </main>
 {{ end }}{{/* main */}}
