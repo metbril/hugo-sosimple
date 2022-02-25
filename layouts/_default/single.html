@@ -1,0 +1,16 @@
+{{ define "main" }}
+<main>
+    <article class="post h-entry"  id="post-{{ .Permalink | md5 }}">
+        <header>
+            <h1 class="p-name">{{ .Title }}</h1>
+        </header>
+        <p><small>
+            {{ i18n "postedon" }} <a href="{{ .Permalink }}">{{ .Date.Format (.Site.Params.DateFormat | default "2 January 2006") }}</a>
+            {{ i18n "postedby"}} {{ .Params.Author | default (.Site.Author.name) }}
+        </small></p>
+        <section class="p-content">
+            {{ .Content }}
+        </section>
+    </article>
+</main>
+{{ end }}{{/* main */}}
