@@ -1,4 +1,47 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'So Simple Sample'
 theme = 'sosimple'
+
+# 'copyright' is used in default RSS template
+copyright = "© Copyright Robert van Bregt 2022"
+
+# --- Pagination ---
+# paginate     = 10
+# paginatePath = "page"
+
+# --- Lazy menu ---
+# sectionPagesMenu = "main"
+
+[author]
+  # 'name' and 'email' are used in default RSS template
+  name = "John Doe"
+  email = "j.doe@example.org"
+
+[params]
+
+  # List of sections with content for home page
+  mainSections = [ "posts" ]
+
+  # dateFormat = "2 January 2006"
+  dateFormat = "02-01-2006"
+
+  # --- site description ---
+  description = "Example site for the 'So Simple' Hugo theme based on Simple.css"
+
+[menu]
+  [[menu.main]]
+    identifier = 'home'
+    url = "/"
+    name = 'Home'
+    weight = -1
+  [[menu.main]]
+    identifier = 'posts'
+    url = "/posts/"
+    name = 'Posts'
+    weight = 20
+  [[menu.main]]
+    identifier = 'source'
+    url = "https://github.com/metbril/hugo-sosimple"
+    name = 'Source'
+    weight = 90
