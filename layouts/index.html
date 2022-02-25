@@ -3,8 +3,8 @@
 <div>
     {{ with .Title }}<h1>{{ . }}</h1>{{end}}<link class="u-url" href="{{ .Permalink | absURL }}">
     {{ with .Content }}{{ . }}{{ end }}
-{{ end }}
 </div>
+{{ end }}
 <h2>{{ i18n "recentposts" }}</h2>
 {{ $pages := where ( where site.RegularPages "Type" "in" site.Params.mainSections ) "Params.hidden" "ne" true }}
 {{ range first 5 $pages }}
