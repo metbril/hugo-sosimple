@@ -45,3 +45,8 @@ copyright = "© Copyright Robert van Bregt 2022"
     url = "https://github.com/metbril/hugo-sosimple"
     name = 'Source'
     weight = 90
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
