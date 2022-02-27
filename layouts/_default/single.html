@@ -9,6 +9,7 @@
             {{ i18n "postedby"}} {{ .Params.Author | default (.Site.Author.name) }}
         </small></p>
         <section class="p-content">
+            {{ partial "featured_image" . }}
             {{ .Content | safeHTML }}
         </section>
         <footer>

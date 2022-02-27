@@ -1,0 +1,8 @@
+{{ $featured_image := partial "func/get_featured_image.html" . }}
+{{ if $featured_image }}
+  {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
+  {{ $featured_image := (trim $featured_image "/") | absURL }}
+  <figure>
+    <img src="{{$featured_image}}">
+  </figure>
+{{ end }}
