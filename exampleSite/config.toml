@@ -29,6 +29,9 @@ copyright = "© Copyright Robert van Bregt 2022"
   # --- site description ---
   description = "Example site for the 'So Simple' Hugo theme based on Simple.css"
 
+  # See also post count
+  # maxSeeAlsoItems = 5
+
 [menu]
   [[menu.main]]
     identifier = 'home'

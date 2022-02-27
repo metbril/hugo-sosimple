@@ -8,6 +8,10 @@ TODO - add as submodule.
 
 ## Site Configuration
 
+Parameter | Description
+--- | ---
+`.Params.maxSeeAlsoItems` | The maximum number of items to show in the See Also section. Default = 5
+
 See `config.toml` in the example site.
 
 ## Page front matter

@@ -1,0 +1,11 @@
+{{ $related := (where (.Site.RegularPages.Related .) "Type" "in" site.Params.mainSections) | first (site.Params.maxSeeAlsoItems | default 5) }}
+{{ with $related }}
+<aside>
+  <h3>{{ i18n "seealso" }}</h3>
+  <ul>
+    {{ range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</aside>
+{{ end }}
