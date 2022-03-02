@@ -1,8 +1,40 @@
-{{ $featured_image := partial "func/get_featured_image.html" . }}
-{{ if $featured_image }}
-  {{/* Trimming the slash and adding absURL make sure the image works no matter where our site lives */}}
-  {{ $featured_image := (trim $featured_image "/") | absURL }}
+{{ $src := "" }}
+{{ with .Params.featured_image }}
+  {{ $src = $.Resources.GetMatch . }}
+{{ else }}
+  {{ $matches := "feature,cover" }}
+  {{ with .Resources.ByType "image" }}
+    {{ $src = .GetMatch (printf "**{%s}*" $matches) }}
+  {{ end }}
+{{ end }}
+
+{{ with $src }}
+
+  {{ $tiny := .Resize "360x" }}
+  {{ $small := .Resize "720x" }}
+  {{ $medium := .Resize "1200x" }}
+  {{ $large := .Resize "1500x" }}
+
   <figure>
-    <img src="{{$featured_image}}">
+    <img
+    srcset="
+      {{- if ge $src.Width "360" }}
+        {{- with $tiny.RelPermalink }}{{.}} 360w{{- end }}
+      {{- end }}
+      {{- if ge $src.Width "720" }}
+        {{- with $medium.RelPermalink }}, {{.}} 720w{{- end }}
+      {{- end }}
+      {{- if ge $src.Width "1200" }}
+        {{- with $medium.RelPermalink }}, {{.}} 1200w{{- end }}
+      {{- end }}
+      {{- if ge $src.Width "1500" }}
+        {{- with $large.RelPermalink }}, {{.}} 1500w{{- end }}
+      {{- end }}"
+    src="
+      {{- if ge $src.Width "720" }}
+        {{- $small.RelPermalink }}
+      {{- else }}
+        {{- $src.RelPermalink }}
+      {{- end }}" />
   </figure>
 {{ end }}
