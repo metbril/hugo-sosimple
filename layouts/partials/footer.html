@@ -1,3 +1,11 @@
 <footer>
-    <p>Powered by <a href="https://gohugo.io">Hugo</a>, <a href="https://github.com/metbril/hugo-sosimple">So Simple</a> theme and the <a href="https://simplecss.org/">Simple.css</a> stylesheet</p>
+    {{ if not .Site.Params.hideCredits }}
+    <div>Powered by <a href="https://gohugo.io">Hugo</a>, <a href="https://github.com/metbril/hugo-sosimple">So Simple</a> theme and the <a href="https://simplecss.org/">Simple.css</a> stylesheet</div>
+    {{ end }}
+    {{ with .Site.Params.License }}
+    <div>{{. | markdownify }}</div>
+    {{ end }}
+    {{ with .Site.Copyright}}
+    <div>{{ . }}</div>
+    {{ end }}
 </footer>

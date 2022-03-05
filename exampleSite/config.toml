@@ -32,6 +32,12 @@ copyright = "© Copyright Robert van Bregt 2022"
   # See also post count
   # maxSeeAlsoItems = 5
 
+  # Hide credits (please don't)
+  # hideCredits = false
+
+  # License (some markdown allowed)
+  license = "This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/)."
+
 [menu]
   [[menu.main]]
     identifier = 'home'

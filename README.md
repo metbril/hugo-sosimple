@@ -11,6 +11,8 @@ TODO - add as submodule.
 Parameter | Description
 --- | ---
 `.Params.maxSeeAlsoItems` | The maximum number of items to show in the See Also section. Default = 5
+`.Params.License` | A license for your content. Some markdown allowed. License is shown in footer.
+`.Params.HideCredits` | Hide credits in footer. (I hope you don't.) `true` or `false`. Default = `false`.
 
 See `config.toml` in the example site.
 
